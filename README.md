@@ -1,8 +1,6 @@
 # FAABRA GLOBAL TRADE
 
-Business management and accounting for **FAABRA GLOBAL TRADE** — purchases, sales, stock, debtors, creditors, cash, bank, expenses and profitability.
-
-One responsive Progressive Web App for computer and Android phone. Books sync to a **free Supabase** cloud database, and also stay on the device so the app works offline.
+FAABRA is a responsive Progressive Web App for running **FAABRA GLOBAL TRADE** on phone and computer. Record purchases and sales, track stock at weighted average cost, manage customer and supplier balances, cash and bank, expenses and owner’s drawings, and see profit without manual calculations. Data syncs to a free cloud database and also stays on the device for offline use, with backup and restore.
 
 ## Stack
 
