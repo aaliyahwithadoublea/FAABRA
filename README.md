@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FAABRA GLOBAL TRADE
 
-## Getting Started
+Business management and accounting for **FAABRA GLOBAL TRADE** — purchases, sales, stock, debtors, creditors, cash, bank, expenses and profitability.
 
-First, run the development server:
+One responsive Progressive Web App for computer and Android phone. Books sync to a **free Supabase** cloud database, and also stay on the device so the app works offline.
+
+## Stack
+
+- Next.js (App Router) + TypeScript + Tailwind CSS
+- Double-entry accounting engine with weighted-average stock costing
+- Zustand + Immer + idb-keyval (offline cache)
+- Supabase free tier (cloud sync)
+- Installable PWA (manifest + icons)
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+On first launch the product register is pre-filled with egg sizes and Cway water. Use **Settings → Load sample data** to explore a full month of invented trading, or start entering your own.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm test          # accounting engine tests
+npm run build     # production build
+npm start         # serve the production build
+```
 
-## Learn More
+## Free cloud sync (Supabase)
 
-To learn more about Next.js, take a look at the following resources:
+This is free for a small business. No paid plan required.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Create a free project at [supabase.com](https://supabase.com) (Free plan).
+2. Open **SQL Editor** → New query → paste everything from `supabase/schema.sql` → **Run**.
+3. Open **Project Settings → API** and copy:
+   - Project URL
+   - `anon` `public` key
+4. Copy `.env.example` to `.env.local` and fill those two values in:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_ANON_PUBLIC_KEY
+```
 
-## Deploy on Vercel
+5. Restart `npm run dev`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+After that, sales entered on the phone appear on the computer (and the other way round). If the free project pauses after a week of no use, open the Supabase dashboard once and restore it — still free.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Without `.env.local`, the app still works on-device only.
+
+## What is included
+
+| Area | Features |
+| --- | --- |
+| Registers | Products (eggs & water), customers, suppliers, cash/bank accounts |
+| Purchases | Multi-line bills, transport added to stock cost, supplier balances |
+| Sales | Multi-line invoices (eggs + water), retail/wholesale prices, drafts, shareable invoice image |
+| Money | Customer receipts (partial / multi-invoice), supplier payments, expenses, transfers |
+| Stock | Weighted average cost, returns, breakages, internal use, adjustments, low-stock alerts |
+| Ledgers | Debtors & creditors with ageing, cash/bank books, capital & drawings |
+| Reports | Profit & loss (eggs / water / combined), balance sheet, trial balance, Excel export |
+| Controls | Posted entries are never deleted — only reversed, with a full audit trail |
+| Data | Cloud sync + on-device cache, JSON backup / restore, daily local snapshots |
+
+## Notes
+
+- Personal withdrawals are owner's drawings, not expenses. Capital introduced is not sales.
+- Install on Android: open in Chrome → menu → **Add to Home screen**.
