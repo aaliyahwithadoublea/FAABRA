@@ -35,15 +35,17 @@ This is free for a small business. No paid plan required.
 
 1. Create a free project at [supabase.com](https://supabase.com) (Free plan).
 2. Open **SQL Editor** → New query → paste everything from `supabase/schema.sql` → **Run**.
-3. Open **Project Settings → API** and copy:
-   - Project URL
-   - `anon` `public` key
+3. Open **Project Settings → API Keys** and copy:
+   - Project URL (under **Data API** / Connect)
+   - **Publishable** key (`sb_publishable_...`), or the legacy **anon** key under **View legacy API keys**
 4. Copy `.env.example` to `.env.local` and fill those two values in:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_ANON_PUBLIC_KEY
+NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_PUBLISHABLE_OR_ANON_KEY
 ```
+
+Never put the **secret** key in the app.
 
 5. Restart `npm run dev`.
 
