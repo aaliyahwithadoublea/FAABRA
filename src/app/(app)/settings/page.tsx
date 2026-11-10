@@ -118,14 +118,12 @@ export default function SettingsPage() {
           <div>
             <p className="mb-1.5 text-[13px] font-medium">Logo</p>
             <div className="flex items-center gap-3">
-              {db.settings.logo ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={db.settings.logo} alt="" className="size-14 rounded-xl border border-line object-contain" />
-              ) : (
-                <span className="grid size-14 place-items-center rounded-xl bg-brand-600 text-lg font-bold text-white">
-                  {(db.settings.businessName || "F").slice(0, 1)}
-                </span>
-              )}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={db.settings.logo || "/logo.png"}
+                alt=""
+                className="size-14 rounded-xl border border-line object-cover"
+              />
               <div className="flex flex-wrap gap-2">
                 <Button size="sm" variant="secondary" onClick={() => logoRef.current?.click()}>
                   Upload logo

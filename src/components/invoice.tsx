@@ -53,14 +53,12 @@ export function InvoiceView({ sale }: { sale: Sale }) {
         )}
       >
         <header className="flex items-start gap-3 border-b border-dashed border-line pb-5">
-          {s.logo ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={s.logo} alt="" className="size-12 shrink-0 rounded-xl object-contain" />
-          ) : (
-            <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-brand-600 text-base font-bold text-white">
-              {(s.businessName || "F").slice(0, 1)}
-            </span>
-          )}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={s.logo || "/logo.png"}
+            alt=""
+            className="size-12 shrink-0 rounded-xl object-cover"
+          />
           <div className="min-w-0 flex-1">
             <p className="text-[15px] leading-tight font-bold tracking-wide uppercase">{s.businessName || "FAABRA GLOBAL TRADE"}</p>
             {s.rcNumber && <p className="mt-0.5 text-xs text-muted">RC {s.rcNumber}</p>}

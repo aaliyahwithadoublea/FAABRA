@@ -42,6 +42,7 @@ import {
   SupplierPaymentForm,
   TransferForm,
 } from "./forms";
+import { LogoMark } from "./logo";
 import { Button, ButtonLink, cn } from "./ui";
 
 /* -------------------------------- Navigation ------------------------------ */
@@ -102,9 +103,7 @@ function isActive(pathname: string, href: string) {
 function Brand({ compact }: { compact?: boolean }) {
   return (
     <Link href="/" className="flex items-center gap-2.5">
-      <span className="grid size-9 place-items-center rounded-xl bg-brand-600 text-sm font-bold tracking-tight text-white shadow-sm">
-        FG
-      </span>
+      <LogoMark size={36} className="size-9" />
       {!compact && (
         <span className="min-w-0">
           <span className="block truncate text-[15px] leading-tight font-semibold tracking-tight text-ink">FAABRA</span>
@@ -314,7 +313,7 @@ export function Shell({ children }: { children: ReactNode }) {
     return (
       <div className="grid min-h-dvh place-items-center bg-canvas">
         <div className="flex flex-col items-center gap-3">
-          <span className="grid size-14 place-items-center rounded-2xl bg-brand-600 text-lg font-bold text-white shadow-pop">FG</span>
+          <LogoMark size={56} className="size-14 shadow-pop" />
           <p className="text-sm text-muted">Opening your books…</p>
         </div>
       </div>
